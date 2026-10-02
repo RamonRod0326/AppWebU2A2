@@ -1,0 +1,31 @@
+package com.ramon.U2T2.dto;
+
+import java.time.LocalDateTime;
+import java.util.Map;
+
+public class ErrorResponseDTO {
+    private LocalDateTime timestamp;
+    private int status;
+    private String error;
+    private String message;
+    private Map<String, String> validaciones;
+
+    public ErrorResponseDTO(int status, String error, String message) {
+        this.timestamp = LocalDateTime.now();
+        this.status = status;
+        this.error = error;
+        this.message = message;
+    }
+
+    public ErrorResponseDTO(int status, String error, String message, Map<String, String> validaciones) {
+        this(status, error, message);
+        this.validaciones = validaciones;
+    }
+
+    // Getters y Setters
+    public LocalDateTime getTimestamp() { return timestamp; }
+    public int getStatus() { return status; }
+    public String getError() { return error; }
+    public String getMessage() { return message; }
+    public Map<String, String> getValidaciones() { return validaciones; }
+}
